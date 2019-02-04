@@ -1,10 +1,12 @@
 <template>
-  <div class="hello">
+  <div class="card-wrapper">
     <h1>{{ msg }}</h1>
     <button type="button" @click="fetchBeer">Beer </button>
-    <div v-for="beer in beerBank" :key="beer.anme"> 
-      <card :card-data="beer"/>
-    </div>
+    <section class="row">
+      <div v-for="beer in beerBank" :key="beer.anme" class="col-sm-6 col-md-3 d-flex justify-content-center"> 
+        <card :card-data="beer"/>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -67,8 +69,11 @@ export default {
 
 <style lang="scss" scoped>
 $color: red;
-
-h1 {
-  color: $color;
+.card-wrapper {
+  background: #e4e3e1;
+  h1 {
+    color: $color;
+  }
 }
+
 </style>
