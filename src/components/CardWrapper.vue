@@ -34,7 +34,6 @@ export default {
       loading: false,
       beerData: [],
       params: {
-        //abv_gt: 3
       }
     }
   },
@@ -72,7 +71,7 @@ export default {
         return this.beerData
       },
       set(newVal) {
-        if(newVal && newVal instanceof Array) {
+        if(newVal && newVal instanceof Arraygit) {
           this.beerData = newVal.map(item =>  item)
         }
       }
