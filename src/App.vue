@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/glass.png">
     <card-wrapper msg="Welcome to Your Beer Finder"/>
   </div>
 </template>

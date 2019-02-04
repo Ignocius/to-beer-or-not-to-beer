@@ -1,8 +1,10 @@
 <template>
   <div class="card-wrapper">
-    <h1>{{ msg }}</h1>
+    <img alt="Vue logo" src="../assets/glass.png">
     <button type="button" @click="fetchBeer">Beer </button>
-    <section class="row">
+    <nav-bar @change="onChange" />
+    <section class="row wrapper">
+      <loader :loading="loading" />
       <div v-for="beer in beerBank" :key="beer.anme" class="col-sm-6 col-md-3 d-flex justify-content-center"> 
         <card :card-data="beer"/>
       </div>
@@ -13,15 +15,19 @@
 <script>
 import ndjsonStream from 'can-ndjson-stream'
 import Card from './Card'
+import Loader from './Loader'
+import NavBar from './NavBar'
 const API_URL = 'https://api.punkapi.com/v2/beers'
 
 export default {
-  name: 'HelloWorld',
+  name: 'CardWrapper',
   components: {
-    Card
+    Card,
+    Loader,
+    NavBar
   },
   props: {
-    msg: String
+    url: String
   },
   data() {
     return {
@@ -53,6 +59,12 @@ export default {
       }
       getData()
     },
+    onChange({payload_type, value}) {
+      if(value) {
+        Object.assign(this.params, {[payload_type]: value})
+        this.fetchBeer()
+      }
+    }
   },
   computed: {
     beerBank: {
@@ -60,7 +72,9 @@ export default {
         return this.beerData
       },
       set(newVal) {
-        this.beerData = newVal.map(item =>  item)
+        if(newVal && newVal instanceof Array) {
+          this.beerData = newVal.map(item =>  item)
+        }
       }
     }
   }
@@ -73,6 +87,9 @@ $color: red;
   background: #e4e3e1;
   h1 {
     color: $color;
+  }
+  .wrapper {
+    position: relative;
   }
 }
 
