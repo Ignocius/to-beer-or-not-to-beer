@@ -71,7 +71,7 @@ export default {
         return this.beerData
       },
       set(newVal) {
-        if(newVal && newVal instanceof Arraygit) {
+        if(newVal && newVal instanceof Array) {
           this.beerData = newVal.map(item =>  item)
         }
       }
