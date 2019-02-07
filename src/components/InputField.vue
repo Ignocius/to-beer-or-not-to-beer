@@ -1,13 +1,13 @@
 <template>
   <div>
-    <input v-bind="$props" ref="input"  v-on="$listeners" @click="active = !active" :class="{active: active}" :placeholder="placeHolder" class="search__field" />
+    <input v-bind="$props" ref="input"  :format="format" v-on="$listeners" @click="active = !active" :class="{active: active}" :placeholder="placeHolder" class="search__field" />
   </div>
 </template>
 
 <script>
   export default {
     name: 'SearchBar',
-    props: ['type', 'id', 'name'],
+    props: ['type', 'id', 'name', 'format'],
     data() {
       return {
         active: false,
@@ -16,7 +16,6 @@
     },
     methods: {
       clickCheck() {
-        console.log('call')
         window.addEventListener('click', (event)=>{
           const target = event.target
           if(target !== this.$refs.input) {

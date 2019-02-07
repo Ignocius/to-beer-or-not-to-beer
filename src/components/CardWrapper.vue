@@ -1,5 +1,5 @@
 <template>
-  <div class="card-wrapper">
+  <div class="card-wrapper contianer">
     <nav class="d-flex">      
       <div class="beer-logo-container d-flex"> 
         <img alt="Beeeeeer" class="beer-logo" src="../assets/glass.png">
@@ -7,7 +7,7 @@
       <nav-bar @change="onChange" >
       </nav-bar>
     </nav>
-    <section class="row wrapper">
+    <section class="row wrapper mr-5 ml-5">
       <loader :loading="loading" />
       <div v-for="beer in beerBank" :key="beer.anme" class="col-sm-6 col-md-3 d-flex justify-content-center"> 
         <card :card-data="beer"/>
