@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="d-flex navbar_contianer justify-content-center align-items-center">
+    <slot />
     <search-bar v-bind="defaultField" @input="onChange" />
   </div>
 </template>
@@ -46,6 +47,18 @@ export default {
 }
 </script>
 
-<style <style lang="scss" scoped>
+<style lang="scss" scoped>
+.navbar_contianer {
+  width: 100vw;
+      background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 254, 254) 39%, rgb(255, 255, 255) 75%, rgba(255, 253, 253, 0.45) 94%, rgba(228, 227, 225, 0.69) 100%);
+  overflow: hidden;
+  margin-left: -15vw;
+  z-index: 0;
+}
 
+@media only screen and (max-width: 600px) {
+  .navbar_contianer {
+    max-height: 150px
+  }
+}
 </style>

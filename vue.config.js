@@ -7,6 +7,7 @@ module.exports = {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
   },
+  devServer: { disableHostCheck: true, host: 'localhost' } 
 }
 
 function addStyleResource (rule) {

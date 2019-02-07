@@ -1,8 +1,12 @@
 <template>
   <div class="card-wrapper">
-    <img alt="Vue logo" src="../assets/glass.png">
-    <button type="button" @click="fetchBeer">Beer </button>
-    <nav-bar @change="onChange" />
+    <nav class="d-flex">      
+      <div class="beer-logo-container d-flex"> 
+        <img alt="Beeeeeer" class="beer-logo" src="../assets/glass.png">
+      </div>
+      <nav-bar @change="onChange" >
+      </nav-bar>
+    </nav>
     <section class="row wrapper">
       <loader :loading="loading" />
       <div v-for="beer in beerBank" :key="beer.anme" class="col-sm-6 col-md-3 d-flex justify-content-center"> 
@@ -81,15 +85,59 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: red;
+@mixin Gradient {
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+}
+
 .card-wrapper {
+  font-family: 'Montserrat', sans-serif;
   background: #e4e3e1;
-  h1 {
-    color: $color;
-  }
   .wrapper {
     position: relative;
   }
+  .beer-logo-container {
+    width: 20vw;
+    min-width: 100px;
+    height: 35vh;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 83%;
+    overflow: hidden;
+    //background: white;
+    @include Gradient;
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    box-shadow: 9px 2px 12px 0px rgba(0, 0, 0, 0.39);
+    z-index: 1;
+    .beer-logo {
+      vertical-align: middle;
+      border-style: none;
+      width: 100%;
+      background: black;
+      overflow: hidden;
+      border-bottom-right-radius: 83%;
+    }
+  }
 }
 
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    .beer-logo-container {
+      max-height: 150px;
+    }
+  }
+}
 </style>

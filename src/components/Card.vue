@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card 
-      :title="cardData.title"
+      :title="cardData.name"
       :img-src="cardData.image_url"
       img-alt="Image"
       img-top
@@ -41,6 +41,10 @@
   -webkit-box-shadow: 9px 10px 5px 0px rgba(0,0,0,0.39);
   -moz-box-shadow: 9px 10px 5px 0px rgba(0,0,0,0.39);
   box-shadow: 9px 10px 5px 0px rgba(0,0,0,0.39);
+  .card-title {
+    font-family: 'Caveat', cursive;
+    border-bottom: 1px solid #8080804a;
+  }
   .card-img-top {
     max-height: 200px;
     object-fit: contain;
