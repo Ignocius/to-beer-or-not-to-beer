@@ -11,28 +11,51 @@
       {{cardData.description}}
     </p>
     <button class="btn btn-primary" type="button" @click="showExtraData = !showExtraData" >Show more</button>
+    <simple-modal :is-shown="showExtraData" @close="onClose"> 
+      <slot slot="header">
+        <h5>{{cardData.name}}</h5>
+      </slot>
+      <slot slot="body">
+        <p>
+          {{cardData.brewers_tips}}
+        </p>
+        <span>{{cardData.contributed_by}} </span>
+        <div class="progress">
+          <label>Attenuation level</label>
+          <div class="progress-bar" role="progressbar" :style="`width: ${cardData.attenuation_level}%`" :aria-valuenow="cardData.attenuation_level" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <b-table striped hover :items="[{attenuation_level: cardData.attenuation_level, ebc: cardData.ebc, }]"></b-table>
+        <b-table striped hover :items="cardData.ingredients.malt"></b-table>
+      </slot>
+    </simple-modal>
   </b-card>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'card',
-    props: {
-      cardData: {
-        type: Object,
-        default: () => {}
-      },
+import SimpleModal from './SimpleModal'
+export default {
+  name: 'card',
+  components: {
+    SimpleModal
+  },
+  props: {
+    cardData: {
+      type: Object,
+      default: () => {}
     },
-    data() {
-      return {
-        showExtraData: false
-      }
-    },
-    methods: {
-
+  },
+  data() {
+    return {
+      showExtraData: false
+    }
+  },
+  methods: {
+    onClose() {
+      this.showExtraData = false
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
