@@ -34,6 +34,7 @@
 .search__field {
   font-family: 'Caveat', cursive;
   width: 25vw;
+  background-color: transparent;
   transition: width 2s;
   border: 0;
   border-bottom: 3px solid #c1c1c1;

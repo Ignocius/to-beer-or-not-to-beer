@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex navbar__dropdown justify-content-center align-items-center">
+  <div class="d-flex navbar__dropdown flex-md-row justify-content-md-center align-items-center justify-content-sm-around">
     <slot />
     <b-dropdown id="ddown-dropup" dropup text="Change Search" class="navbar__dropdown__btn">
       <b-dropdown-item v-for="dropItem in dropdownMock" :key="dropItem.name" @click="changeField(dropItem)">{{dropItem.name}}</b-dropdown-item>
@@ -92,7 +92,6 @@ export default {
 <style lang="scss" scoped>
 .navbar__dropdown {
   width: 100vw;
-  background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 254, 254) 39%, rgb(255, 255, 255) 75%, rgba(255, 253, 253, 0.45) 94%, rgba(228, 227, 225, 0.69) 100%);
   overflow: hidden;
   margin-left: -15vw;
   z-index: 0;
@@ -103,7 +102,11 @@ export default {
   }
 }
 
+
 @media only screen and (max-width: 600px) {
+  .navbar__dropdown {
+    flex-direction: column;
+  }
   .navbar_contianer {
     max-height: 150px
   }

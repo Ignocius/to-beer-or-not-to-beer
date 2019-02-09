@@ -62,5 +62,12 @@ $background-color:#141414;
     opacity:1;
   }
 }
+@media only screen and (max-width: 600px) { 
+  .loader-wrapper {
+    .loading { 
+      font-size: 60px;
+    }
+  }
+}
 
 </style>

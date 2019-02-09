@@ -3,12 +3,12 @@
     <div class="simple__modal__wrapper d-flex flex-column justify-content-between">
       <div class="simple__modal__header d-flex justify-content-between align-items-center">
         <slot name="header" />
-        <span class="d-flex justify-content-end align-items-center" @click="onClose">X</span>
+        <span class="d-flex justify-content-center align-items-center" @click="onClose">X</span>
       </div>
       <div class="simple__modal__body">
         <slot name="body" />  
       </div>  
-      <div class="simple__modal__footar d-flex justify-content-end align-items-center">
+      <div class="simple__modal__footer d-flex justify-content-end align-items-center">
         <slot name="footer">
           <button class="close-modal" type="button" @click="onClose"> Close Modal </button>
         </slot>
@@ -57,11 +57,15 @@ $height: 50px;
     &__header {
       min-height: $height;
       background: $gray;
+      span {
+        width: 30px;
+        height: 100%;
+      }
     }
     &__body {
       padding: 0 15px;
     }
-    &__footar {
+    &__footer {
       min-height: $height;
       background: $gray;
       button {

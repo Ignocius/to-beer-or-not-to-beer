@@ -86,16 +86,25 @@ export default {
 
 <style lang="scss" scoped>
 @mixin Gradient {
-  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background: linear-gradient(-45deg, white, white, rgba(64, 60, 60, 0.68), #010202)
 }
-
 .card-wrapper {
   font-family: 'Montserrat', sans-serif;
   background: #e4e3e1;
   .wrapper {
     position: relative;
   }
+  nav {
+    @include Gradient;
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+  }
   .beer-logo-container {
+    justify-content: center;
+    align-items: center;
+    background: black;
     width: 20vw;
     min-width: 100px;
     height: 35vh;
@@ -103,20 +112,16 @@ export default {
     border-bottom-right-radius: 83%;
     overflow: hidden;
     //background: white;
-    @include Gradient;
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
     box-shadow: 9px 2px 12px 0px rgba(0, 0, 0, 0.39);
     z-index: 1;
     .beer-logo {
+      height: 80%;
       vertical-align: middle;
       border-style: none;
       width: 100%;
       background: black;
       overflow: hidden;
-      border-bottom-right-radius: 83%;
+      object-fit: scale-down;
     }
   }
 }
