@@ -42,11 +42,11 @@
   text-align: center;
   font-size: calc(16px + 5 * ((100vw - 320px) / 680));
   &:placeholder-shown {
-    color: gray;
+    color: #c1c1c1;
     font-family: 'Caveat', cursive;
   }
   &.active {
-    width: 50vw;
+    width: 35vw;
     transition: width 2s;
   }
 }

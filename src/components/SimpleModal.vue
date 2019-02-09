@@ -1,9 +1,9 @@
 <template>
   <div class="modal d-flex  simple__modal justify-content-center" v-if="isShown">
-    <div class="simple__modal__wrapper d-flex flex-column justify-content-between">
+    <div class="simple__modal__wrapper d-flex flex-column justify-content-between" r :style="height">
       <div class="simple__modal__header d-flex justify-content-between align-items-center">
         <slot name="header" />
-        <span class="d-flex justify-content-center align-items-center" @click="onClose">X</span>
+        <span class="d-flex justify-content-center align-items-center close-modal" @click="onClose">X</span>
       </div>
       <div class="simple__modal__body">
         <slot name="body" />  
@@ -25,10 +25,15 @@
         type: Boolean,
         default: true
       },
+      styleOptions: {
+        type: Object,
+        default: () => {}
+      }
     },
     data() {
       return {
-        shown: null
+        shown: null,
+        height: 'auto',
       }
     },
     methods: {
@@ -44,10 +49,13 @@ $gray: #eaeaea;
 $height: 50px;
 .modal {
   background: #00000059;
+  .close-modal{
+    cursor: pointer;
+  }
+  h5 {
+    margin-left: 5%;
+  }
   .simple__modal{
-    .close-modal{
-      cursor: pointer;
-    }
     &__wrapper {
       background: #ffffff;
       min-height: 75px;
